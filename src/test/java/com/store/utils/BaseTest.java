@@ -1,0 +1,53 @@
+package com.store.utils;
+
+import com.store.pages.HomePage;
+import com.store.pages.LoginPage;
+import com.store.pages.RegisterPage;
+import com.store.pages.CartPage;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+
+import java.time.Duration;
+
+public class BaseTest {
+
+    public WebDriver driver;
+    protected int TIME_OUT = 10;
+    protected String URL = "https://ecommerce-playground.lambdatest.io/";
+
+
+    //protected String URL = "https://demowebshop.tricentis.com";
+
+    protected HomePage homePage;
+    protected RegisterPage registerPage;
+    protected LoginPage loginPage;
+    protected CartPage cartPage;
+    protected DBValidation dbValidation;
+
+    @BeforeMethod
+    public void setup() {
+        ChromeOptions options = new ChromeOptions();
+        //options.addArguments("--headless=new");
+        driver = new ChromeDriver(options);
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(TIME_OUT));
+        driver.get(URL);
+
+        homePage = new HomePage(driver);
+        registerPage = new RegisterPage(driver);
+        loginPage = new LoginPage(driver);
+        cartPage = new CartPage(driver);
+        dbValidation = new DBValidation();
+    }
+
+    @AfterMethod
+    public void tearDown() {
+        if (driver != null) {
+            driver.manage().deleteAllCookies();
+            driver.quit();
+        }
+    }
+}
