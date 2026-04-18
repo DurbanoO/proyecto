@@ -1,12 +1,5 @@
 # Proyecto de Automatización - Selenium WebDriver
-
-![Java](https://img.shields.io/badge/Java-21-orange.svg)
-![Selenium](https://img.shields.io/badge/Selenium-WebDriver-green.svg)
-![TestNG](https://img.shields.io/badge/TestNG-Testing-blue.svg)
-![Maven](https://img.shields.io/badge/Maven-Build%20Tool-red.svg)
-![Allure](https://img.shields.io/badge/Allure-Reports-yellow.svg)
-
-## 👤 Autor
+## Autor
 **David Urbano**
 
 ## 🎯 Objetivo del Proyecto
