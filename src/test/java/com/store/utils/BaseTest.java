@@ -30,16 +30,10 @@ public class BaseTest {
     protected DBValidation dbValidation;
 
     @BeforeMethod
-    public void setup() throws MalformedURLException {
+    public void setup() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless=new");
-        
-        String executionMode = System.getProperty("execution", "local");
-        if (executionMode.equalsIgnoreCase("grid")) {
-            driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
-        } else {
-            driver = new ChromeDriver(options);
-        }
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(TIME_OUT));
         driver.get(URL);

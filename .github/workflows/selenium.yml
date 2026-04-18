@@ -61,7 +61,7 @@ jobs:
           exit 1
 
       - name: run tests
-        run: mvn test -Dsurefire.suiteXmlFiles=testng_regression.xml -Dexecution=grid
+        run: mvn test -Dsurefire.suiteXmlFiles=testng.xml -Dexecution=grid
 
       - name: Generate Allure Report
         if: always()
