@@ -18,8 +18,7 @@ public class BaseTest {
     protected int TIME_OUT = 10;
     protected String URL = "https://ecommerce-playground.lambdatest.io/";
 
-
-    //protected String URL = "https://demowebshop.tricentis.com";
+    // protected String URL = "https://demowebshop.tricentis.com";
 
     protected HomePage homePage;
     protected RegisterPage registerPage;
@@ -30,7 +29,7 @@ public class BaseTest {
     @BeforeMethod
     public void setup() {
         ChromeOptions options = new ChromeOptions();
-        //options.addArguments("--headless=new");
+        options.addArguments("--headless=new");
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(TIME_OUT));
